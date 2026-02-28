@@ -1,0 +1,59 @@
+# Initial student data
+students = [
+    ("Harsha", 101, 85),
+    ("Ravi", 102, 65),
+    ("Anu", 103, 30)
+]
+
+while True:
+    print("\n--- Student Menu ---")
+    print("1. Add student")
+    print("2. Show students")
+    print("3. Find topper")
+    print("4. Show result")
+    print("5. Exit")
+
+    choice = input("Enter your choice (1-5): ")
+
+    # Add student
+    if choice == "1":
+        name = input("Enter name: ")
+        roll = int(input("Enter roll number: "))
+        marks = int(input("Enter marks: "))
+
+        students.append((name, roll, marks))
+        print("Student added successfully!")
+
+    # Show students
+    elif choice == "2":
+        if not students:
+            print("No students found.")
+        else:
+            print("\nStudent List:")
+            for student in students:
+                print(student)
+
+    # Find topper
+    elif choice == "3":
+        topper = max(students, key=lambda s: s[2])
+        print("\n Topper Details:")
+        print("Name:", topper[0])
+        print("Roll:", topper[1])
+        print("Marks:", topper[2])
+
+    # Show result
+    elif choice == "4":
+        print("\n--- Results ---")
+        for name, roll, marks in students:
+            if marks >= 35:
+                print(name, "- PASS")
+            else:
+                print(name, "- FAIL")
+
+    # Exit
+    elif choice == "5":
+        print(" Program exited. Goodbye!")
+        break
+
+    else:
+        print(" Invalid choice. Please enter 1 to 5.")
